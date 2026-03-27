@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@neondatabase/serverless": "^0.10.4",
+    "@prisma/adapter-neon": "^7.5.0",
     "@prisma/client": "^7.5.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",
