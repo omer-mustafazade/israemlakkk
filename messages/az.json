@@ -1,0 +1,176 @@
+{
+  "nav": {
+    "home": "Ana Səhifə",
+    "listings": "Elanlar",
+    "sale": "Satış",
+    "rent": "Kirayə",
+    "about": "Haqqımızda",
+    "contact": "Əlaqə"
+  },
+  "hero": {
+    "title": "Arzuladığınız Evi Tapın",
+    "subtitle": "İSRA Emlak ilə etibarlı, sürətli və peşəkar xidmət",
+    "searchPlaceholder": "Şəhər, rayon və ya ünvan axtarın...",
+    "btnSale": "Satılıq",
+    "btnRent": "Kirayəlik",
+    "btnSearch": "Axtar"
+  },
+  "stats": {
+    "listings": "Aktiv Elan",
+    "experience": "İl Təcrübə",
+    "clients": "Məmnun Müştəri",
+    "cities": "Şəhər"
+  },
+  "featured": {
+    "title": "Seçilmiş Mülklər",
+    "subtitle": "Ən yaxşı təkliflərimizlə tanış olun",
+    "viewAll": "Hamısına bax"
+  },
+  "recent": {
+    "title": "Son Əlavə Edilənlər",
+    "subtitle": "Ən təzə elanlarımız",
+    "viewAll": "Bütün elanlar"
+  },
+  "whyUs": {
+    "title": "Niyə İSRA Emlak?",
+    "subtitle": "Sizə ən yaxşı xidməti təqdim etmək üçün buradayıq",
+    "trust": {
+      "title": "Etibarlılıq",
+      "desc": "10 ildən artıq təcrübə ilə hər addımda yanınızdayıq"
+    },
+    "speed": {
+      "title": "Sürətlilik",
+      "desc": "Ən qısa müddətdə ideal mülkü tapmanıza kömək edirik"
+    },
+    "professional": {
+      "title": "Peşəkarlıq",
+      "desc": "Peşəkar komandamız hər sualınızı cavablandırmağa hazırdır"
+    }
+  },
+  "cta": {
+    "title": "Bizimlə Əlaqə Saxlayın",
+    "subtitle": "Hər hansı sualınız var? Zəng edin və ya WhatsApp vasitəsilə yazın",
+    "phone": "Zəng et",
+    "whatsapp": "WhatsApp"
+  },
+  "filter": {
+    "title": "Filtr",
+    "category": "Kateqoriya",
+    "allCategories": "Hamısı",
+    "sale": "Satış",
+    "rent": "Kirayə",
+    "type": "Əmlak növü",
+    "allTypes": "Bütün növlər",
+    "apartment": "Mənzil",
+    "house": "Ev",
+    "villa": "Villa",
+    "land": "Torpaq",
+    "commercial": "Kommersiya",
+    "office": "Ofis",
+    "priceMin": "Min. qiymət",
+    "priceMax": "Maks. qiymət",
+    "areaMin": "Min. sahə (m²)",
+    "areaMax": "Maks. sahə (m²)",
+    "rooms": "Otaq sayı",
+    "city": "Şəhər",
+    "allCities": "Bütün şəhərlər",
+    "features": "Xüsusiyyətlər",
+    "parking": "Otopark",
+    "balcony": "Balkon",
+    "elevator": "Lift",
+    "furniture": "Mebel",
+    "pool": "Hovuz",
+    "security": "Mühafizə",
+    "apply": "Filtri tətbiq et",
+    "reset": "Sıfırla",
+    "sort": "Sırala",
+    "newest": "Ən yeni",
+    "oldest": "Ən köhnə",
+    "priceAsc": "Qiymət: azdan çoxa",
+    "priceDesc": "Qiymət: çoxdan aza",
+    "mostViewed": "Ən çox baxılan"
+  },
+  "listing": {
+    "sale": "Satış",
+    "rent": "Kirayə",
+    "new": "Yeni",
+    "featured": "Seçilmiş",
+    "rooms": "otaq",
+    "area": "m²",
+    "floor": "mərtəbə",
+    "contact": "Əlaqə saxla",
+    "details": "Ətraflı",
+    "noResults": "Heç bir elan tapılmadı",
+    "tryReset": "Filtrləri sıfırlayıb yenidən cəhd edin",
+    "viewCount": "baxış",
+    "description": "Təsvir",
+    "features": "Xüsusiyyətlər",
+    "location": "Yer",
+    "similar": "Oxşar Elanlar",
+    "breadcrumbHome": "Ana Səhifə",
+    "breadcrumbListings": "Elanlar",
+    "bathroom": "Vanna",
+    "parking": "Otopark",
+    "balcony": "Balkon",
+    "elevator": "Lift",
+    "furniture": "Mebel",
+    "ac": "Kondisioner",
+    "internet": "İnternet",
+    "security": "Mühafizə",
+    "pool": "Hovuz",
+    "gym": "Fitnes",
+    "resultsFound": "{count} elan tapıldı",
+    "whatsappIntro": "Salam, elan haqqında məlumat almaq istəyirəm",
+    "contactBox": {
+      "call": "Zəng et",
+      "whatsapp": "WhatsApp",
+      "email": "E-poçt göndər"
+    }
+  },
+  "about": {
+    "title": "Haqqımızda",
+    "subtitle": "İSRA Emlak — Azərbaycanda etibarlı daşınmaz əmlak şirkəti",
+    "story": "Hekayəmiz",
+    "storyText": "2015-ci ildən fəaliyyət göstərən İSRA Emlak, Bakı və ətraf şəhərlərdə minlərlə müştəriyə xidmət göstərmişdir. Komandamız hər müştəriyə fərdi yanaşma ilə ideal mülkü tapmaqda kömək edir.",
+    "mission": "Missiyamız",
+    "missionText": "Müştərilərimizə ən yaxşı daşınmaz əmlak xidmətini, şəffaflıq və etibarlılıq əsasında təqdim etmək.",
+    "team": "Komandamız",
+    "values": "Dəyərlərimiz"
+  },
+  "contact": {
+    "title": "Əlaqə",
+    "subtitle": "Bizimlə əlaqə saxlamaqdan çəkinməyin",
+    "form": {
+      "name": "Ad Soyad",
+      "phone": "Telefon nömrəsi",
+      "email": "E-poçt (isteğe bağlı)",
+      "message": "Mesaj",
+      "send": "Göndər",
+      "sending": "Göndərilir...",
+      "sendNew": "Yeni mesaj göndər",
+      "success": "Mesajınız göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq.",
+      "error": "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+    },
+    "info": {
+      "address": "Ünvan",
+      "phone": "Telefon",
+      "email": "E-poçt",
+      "hours": "İş saatları",
+      "hoursValue": "B.e – Cümə: 09:00 – 18:00"
+    }
+  },
+  "footer": {
+    "description": "Azərbaycanda etibarlı daşınmaz əmlak xidməti",
+    "quickLinks": "Sürətli Keçidlər",
+    "contact": "Əlaqə",
+    "rights": "Bütün hüquqlar qorunur"
+  },
+  "common": {
+    "loading": "Yüklənir...",
+    "error": "Xəta baş verdi",
+    "notFound": "Səhifə tapılmadı",
+    "backHome": "Ana səhifəyə qayıt",
+    "seeAll": "Hamısına bax",
+    "currency": "AZN"
+  }
+}

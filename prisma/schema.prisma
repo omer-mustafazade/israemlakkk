@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Listing {
+  id          String   @id @default(cuid())
+  // Title & description (trilingual)
+  titleAz     String
+  titleTr     String
+  titleEn     String
+  descAz      String
+  descTr      String
+  descEn      String
+  // Core
+  category    String   // SALE | RENT
+  propertyType String  // APARTMENT | HOUSE | VILLA | OFFICE | LAND | COMMERCIAL
+  status      String   @default("ACTIVE") // ACTIVE | SOLD | RENTED | INACTIVE
+  price       Float
+  currency    String   @default("AZN")
+  area        Float
+  // Location
+  city        String
+  district    String
+  address     String?
+  // Details
+  rooms       Int?
+  bathrooms   Int?
+  floor       Int?
+  totalFloors Int?
+  buildYear   Int?
+  // Features (booleans)
+  hasParking   Boolean @default(false)
+  hasBalcony   Boolean @default(false)
+  hasElevator  Boolean @default(false)
+  hasFurniture Boolean @default(false)
+  hasAC        Boolean @default(false)
+  hasInternet  Boolean @default(false)
+  hasSecurity  Boolean @default(false)
+  hasPool      Boolean @default(false)
+  hasGym       Boolean @default(false)
+  // Flags
+  isFeatured  Boolean  @default(false)
+  isNew       Boolean  @default(true)
+  viewCount   Int      @default(0)
+  // Images stored as JSON string: [{url, alt, isPrimary}]
+  imagesJson  String   @default("[]")
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}

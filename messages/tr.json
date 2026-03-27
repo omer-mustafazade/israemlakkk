@@ -1,0 +1,176 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "listings": "İlanlar",
+    "sale": "Satılık",
+    "rent": "Kiralık",
+    "about": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Hayalinizdeki Evi Bulun",
+    "subtitle": "İSRA Emlak ile güvenilir, hızlı ve profesyonel hizmet",
+    "searchPlaceholder": "Şehir, ilçe veya adres arayın...",
+    "btnSale": "Satılık",
+    "btnRent": "Kiralık",
+    "btnSearch": "Ara"
+  },
+  "stats": {
+    "listings": "Aktif İlan",
+    "experience": "Yıl Deneyim",
+    "clients": "Mutlu Müşteri",
+    "cities": "Şehir"
+  },
+  "featured": {
+    "title": "Öne Çıkan Mülkler",
+    "subtitle": "En iyi tekliflerimizle tanışın",
+    "viewAll": "Tümünü gör"
+  },
+  "recent": {
+    "title": "Son Eklenenler",
+    "subtitle": "En yeni ilanlarımız",
+    "viewAll": "Tüm ilanlar"
+  },
+  "whyUs": {
+    "title": "Neden İSRA Emlak?",
+    "subtitle": "Size en iyi hizmeti sunmak için buradayız",
+    "trust": {
+      "title": "Güvenilirlik",
+      "desc": "10 yılı aşkın deneyimle her adımda yanınızdayız"
+    },
+    "speed": {
+      "title": "Hız",
+      "desc": "En kısa sürede ideal mülkü bulmanıza yardımcı oluyoruz"
+    },
+    "professional": {
+      "title": "Profesyonellik",
+      "desc": "Uzman ekibimiz her sorunuzu yanıtlamaya hazır"
+    }
+  },
+  "cta": {
+    "title": "Bizimle İletişime Geçin",
+    "subtitle": "Herhangi bir sorunuz mu var? Arayın veya WhatsApp'tan yazın",
+    "phone": "Ara",
+    "whatsapp": "WhatsApp"
+  },
+  "filter": {
+    "title": "Filtre",
+    "category": "Kategori",
+    "allCategories": "Tümü",
+    "sale": "Satılık",
+    "rent": "Kiralık",
+    "type": "Mülk tipi",
+    "allTypes": "Tüm tipler",
+    "apartment": "Daire",
+    "house": "Ev",
+    "villa": "Villa",
+    "land": "Arsa",
+    "commercial": "Ticari",
+    "office": "Ofis",
+    "priceMin": "Min. fiyat",
+    "priceMax": "Maks. fiyat",
+    "areaMin": "Min. alan (m²)",
+    "areaMax": "Maks. alan (m²)",
+    "rooms": "Oda sayısı",
+    "city": "Şehir",
+    "allCities": "Tüm şehirler",
+    "features": "Özellikler",
+    "parking": "Otopark",
+    "balcony": "Balkon",
+    "elevator": "Asansör",
+    "furniture": "Mobilyalı",
+    "pool": "Havuz",
+    "security": "Güvenlik",
+    "apply": "Filtreleri uygula",
+    "reset": "Sıfırla",
+    "sort": "Sırala",
+    "newest": "En yeni",
+    "oldest": "En eski",
+    "priceAsc": "Fiyat: düşükten yükseğe",
+    "priceDesc": "Fiyat: yüksekten düşüğe",
+    "mostViewed": "En çok görüntülenen"
+  },
+  "listing": {
+    "sale": "Satılık",
+    "rent": "Kiralık",
+    "new": "Yeni",
+    "featured": "Öne Çıkan",
+    "rooms": "oda",
+    "area": "m²",
+    "floor": "kat",
+    "contact": "İletişime geç",
+    "details": "Detaylar",
+    "noResults": "Hiçbir ilan bulunamadı",
+    "tryReset": "Filtreleri sıfırlayıp tekrar deneyin",
+    "viewCount": "görüntülenme",
+    "description": "Açıklama",
+    "features": "Özellikler",
+    "location": "Konum",
+    "similar": "Benzer İlanlar",
+    "breadcrumbHome": "Ana Sayfa",
+    "breadcrumbListings": "İlanlar",
+    "bathroom": "Banyo",
+    "parking": "Otopark",
+    "balcony": "Balkon",
+    "elevator": "Asansör",
+    "furniture": "Mobilyalı",
+    "ac": "Klima",
+    "internet": "İnternet",
+    "security": "Güvenlik",
+    "pool": "Havuz",
+    "gym": "Spor Salonu",
+    "resultsFound": "{count} ilan bulundu",
+    "whatsappIntro": "Merhaba, ilan hakkında bilgi almak istiyorum",
+    "contactBox": {
+      "call": "Ara",
+      "whatsapp": "WhatsApp",
+      "email": "E-posta gönder"
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "İSRA Emlak — Azerbaycan'da güvenilir gayrimenkul şirketi",
+    "story": "Hikayemiz",
+    "storyText": "2015'ten bu yana faaliyet gösteren İSRA Emlak, Bakü ve çevre şehirlerde binlerce müşteriye hizmet vermiştir. Ekibimiz her müşteriye bireysel yaklaşımla ideal mülkü bulmada yardımcı olur.",
+    "mission": "Misyonumuz",
+    "missionText": "Müşterilerimize en iyi gayrimenkul hizmetini, şeffaflık ve güvenilirlik temelinde sunmak.",
+    "team": "Ekibimiz",
+    "values": "Değerlerimiz"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bizimle iletişime geçmekten çekinmeyin",
+    "form": {
+      "name": "Ad Soyad",
+      "phone": "Telefon numarası",
+      "email": "E-posta (isteğe bağlı)",
+      "message": "Mesaj",
+      "send": "Gönder",
+      "sending": "Gönderiliyor...",
+      "sendNew": "Yeni mesaj gönder",
+      "success": "Mesajınız gönderildi! En kısa sürede sizinle iletişime geçeceğiz.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Çalışma saatleri",
+      "hoursValue": "Pzt – Cum: 09:00 – 18:00"
+    }
+  },
+  "footer": {
+    "description": "Azerbaycan'da güvenilir gayrimenkul hizmeti",
+    "quickLinks": "Hızlı Bağlantılar",
+    "contact": "İletişim",
+    "rights": "Tüm hakları saklıdır"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "notFound": "Sayfa bulunamadı",
+    "backHome": "Ana sayfaya dön",
+    "seeAll": "Tümünü gör",
+    "currency": "AZN"
+  }
+}
