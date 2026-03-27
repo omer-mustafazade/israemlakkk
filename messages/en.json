@@ -1,0 +1,176 @@
+{
+  "nav": {
+    "home": "Home",
+    "listings": "Listings",
+    "sale": "For Sale",
+    "rent": "For Rent",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Find Your Dream Home",
+    "subtitle": "Reliable, fast and professional service with ISRA Real Estate",
+    "searchPlaceholder": "Search city, district or address...",
+    "btnSale": "For Sale",
+    "btnRent": "For Rent",
+    "btnSearch": "Search"
+  },
+  "stats": {
+    "listings": "Active Listings",
+    "experience": "Years Experience",
+    "clients": "Happy Clients",
+    "cities": "Cities"
+  },
+  "featured": {
+    "title": "Featured Properties",
+    "subtitle": "Discover our best offers",
+    "viewAll": "View all"
+  },
+  "recent": {
+    "title": "Recently Added",
+    "subtitle": "Our latest listings",
+    "viewAll": "All listings"
+  },
+  "whyUs": {
+    "title": "Why ISRA Real Estate?",
+    "subtitle": "We are here to provide you with the best service",
+    "trust": {
+      "title": "Trustworthy",
+      "desc": "With over 10 years of experience, we are with you every step of the way"
+    },
+    "speed": {
+      "title": "Fast",
+      "desc": "We help you find the ideal property in the shortest possible time"
+    },
+    "professional": {
+      "title": "Professional",
+      "desc": "Our expert team is ready to answer all your questions"
+    }
+  },
+  "cta": {
+    "title": "Get In Touch",
+    "subtitle": "Have any questions? Call us or write via WhatsApp",
+    "phone": "Call",
+    "whatsapp": "WhatsApp"
+  },
+  "filter": {
+    "title": "Filter",
+    "category": "Category",
+    "allCategories": "All",
+    "sale": "For Sale",
+    "rent": "For Rent",
+    "type": "Property type",
+    "allTypes": "All types",
+    "apartment": "Apartment",
+    "house": "House",
+    "villa": "Villa",
+    "land": "Land",
+    "commercial": "Commercial",
+    "office": "Office",
+    "priceMin": "Min. price",
+    "priceMax": "Max. price",
+    "areaMin": "Min. area (m²)",
+    "areaMax": "Max. area (m²)",
+    "rooms": "Rooms",
+    "city": "City",
+    "allCities": "All cities",
+    "features": "Features",
+    "parking": "Parking",
+    "balcony": "Balcony",
+    "elevator": "Elevator",
+    "furniture": "Furnished",
+    "pool": "Pool",
+    "security": "Security",
+    "apply": "Apply filters",
+    "reset": "Reset",
+    "sort": "Sort",
+    "newest": "Newest first",
+    "oldest": "Oldest first",
+    "priceAsc": "Price: low to high",
+    "priceDesc": "Price: high to low",
+    "mostViewed": "Most viewed"
+  },
+  "listing": {
+    "sale": "For Sale",
+    "rent": "For Rent",
+    "new": "New",
+    "featured": "Featured",
+    "rooms": "rooms",
+    "area": "m²",
+    "floor": "floor",
+    "contact": "Contact",
+    "details": "Details",
+    "noResults": "No listings found",
+    "tryReset": "Try resetting the filters",
+    "viewCount": "views",
+    "description": "Description",
+    "features": "Features",
+    "location": "Location",
+    "similar": "Similar Listings",
+    "breadcrumbHome": "Home",
+    "breadcrumbListings": "Listings",
+    "bathroom": "Bathroom",
+    "parking": "Parking",
+    "balcony": "Balcony",
+    "elevator": "Elevator",
+    "furniture": "Furnished",
+    "ac": "Air Conditioning",
+    "internet": "Internet",
+    "security": "Security",
+    "pool": "Pool",
+    "gym": "Gym",
+    "resultsFound": "{count} listings found",
+    "whatsappIntro": "Hello, I would like to get information about the listing",
+    "contactBox": {
+      "call": "Call",
+      "whatsapp": "WhatsApp",
+      "email": "Send email"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "ISRA Real Estate — Trusted real estate company in Azerbaijan",
+    "story": "Our Story",
+    "storyText": "Operating since 2015, ISRA Real Estate has served thousands of clients in Baku and surrounding cities. Our team helps each client find the ideal property with a personalized approach.",
+    "mission": "Our Mission",
+    "missionText": "To provide our clients with the best real estate service based on transparency and reliability.",
+    "team": "Our Team",
+    "values": "Our Values"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Don't hesitate to get in touch with us",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone number",
+      "email": "Email (optional)",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "sendNew": "Send new message",
+      "success": "Your message has been sent! We will contact you shortly.",
+      "error": "An error occurred. Please try again."
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working hours",
+      "hoursValue": "Mon – Fri: 09:00 – 18:00"
+    }
+  },
+  "footer": {
+    "description": "Trusted real estate service in Azerbaijan",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Page not found",
+    "backHome": "Back to home",
+    "seeAll": "See all",
+    "currency": "AZN"
+  }
+}
