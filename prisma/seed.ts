@@ -1,6 +1,10 @@
+import { config } from 'dotenv';
+config();
 import { PrismaClient } from '../src/generated/prisma/client';
-
-const prisma = new PrismaClient();
+import { PrismaNeon } from '@prisma/adapter-neon';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import ws from 'ws';
+neonConfig.webSocketConstructor = ws;
 
 const listings = [
   {
@@ -118,6 +122,10 @@ const listings = [
 ];
 
 async function main() {
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const adapter = new PrismaNeon(pool);
+  const prisma = new PrismaClient({ adapter } as never);
+
   console.log('Seeding database...');
   await prisma.listing.deleteMany();
   await prisma.contactMessage.deleteMany();
@@ -127,6 +135,8 @@ async function main() {
   }
 
   console.log(`Created ${listings.length} listings.`);
+  await prisma.$disconnect();
+  await pool.end();
 }
 
 main()
