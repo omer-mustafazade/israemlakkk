@@ -10,8 +10,8 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const PHONE = '+994501234567';
-  const PHONE_DISPLAY = '+994 50 123 45 67';
+  const PHONE = '+994776254705';
+  const PHONE_DISPLAY = '+994 77 625 47 05';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
