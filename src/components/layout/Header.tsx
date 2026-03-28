@@ -84,7 +84,7 @@ export default function Header() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LanguageSwitcher />
           <a
-            href="tel:+994501234567"
+            href="tel:+994776254705"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -101,7 +101,7 @@ export default function Header() {
             className="phone-btn"
           >
             <Phone size={15} />
-            <span className="phone-text">+994 50 123 45 67</span>
+            <span className="phone-text">+994 77 625 47 05</span>
           </a>
 
           {/* Mobile burger */}
