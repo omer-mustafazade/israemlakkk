@@ -68,16 +68,21 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
     const files = e.target.files;
     if (!files || files.length === 0) return;
     setUploading(true);
+    setError('');
     try {
       for (const file of Array.from(files)) {
         const fd = new FormData();
         fd.append('file', file);
         const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
+        const data = await res.json();
         if (res.ok) {
-          const { url } = await res.json();
-          setImages((prev) => [...prev, { url, alt: '', isPrimary: prev.length === 0 }]);
+          setImages((prev) => [...prev, { url: data.url, alt: '', isPrimary: prev.length === 0 }]);
+        } else {
+          setError(data.error ?? 'Şəkil yüklənmədi');
         }
       }
+    } catch {
+      setError('Şəkil yüklənərkən xəta baş verdi');
     } finally {
       setUploading(false);
       if (fileRef.current) fileRef.current.value = '';
