@@ -1,10 +1,9 @@
-// Simple admin auth using a fixed token stored in .env
-// No external dependencies required.
+import { NextRequest, NextResponse } from 'next/server';
 
 const TOKEN_COOKIE = 'admin_token';
 
 export function getAdminToken(): string {
-  return process.env.ADMIN_TOKEN ?? 'fallback-token';
+  return process.env.ADMIN_TOKEN ?? '';
 }
 
 export function checkPassword(password: string): boolean {
@@ -13,7 +12,17 @@ export function checkPassword(password: string): boolean {
 
 export function isValidToken(token: string | undefined): boolean {
   if (!token) return false;
-  return token === getAdminToken();
+  const validToken = getAdminToken();
+  if (!validToken) return false;
+  return token === validToken;
+}
+
+export function requireAdminAuth(req: NextRequest): NextResponse | null {
+  const token = req.cookies.get(TOKEN_COOKIE)?.value;
+  if (!isValidToken(token)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
 }
 
 export { TOKEN_COOKIE };

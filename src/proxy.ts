@@ -20,7 +20,20 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // API routes: skip i18n
+  // Admin API routes: check auth
+  if (pathname.startsWith('/api/admin')) {
+    if (pathname === '/api/admin/auth') {
+      return NextResponse.next(); // login endpoint - no auth needed
+    }
+    const token = req.cookies.get('admin_token')?.value;
+    const validToken = process.env.ADMIN_TOKEN ?? '';
+    if (!token || !validToken || token !== validToken) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    return NextResponse.next();
+  }
+
+  // Other API routes: skip i18n
   if (pathname.startsWith('/api')) {
     return NextResponse.next();
   }

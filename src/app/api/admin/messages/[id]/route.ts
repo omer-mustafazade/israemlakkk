@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { requireAdminAuth } from '@/lib/auth';
 
 export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const authError = requireAdminAuth(req);
+  if (authError) return authError;
   const { id } = await params;
   try {
     const { isRead } = await req.json();
@@ -19,9 +22,11 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const authError = requireAdminAuth(req);
+  if (authError) return authError;
   const { id } = await params;
   try {
     await prisma.contactMessage.delete({ where: { id } });
