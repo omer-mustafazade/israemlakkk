@@ -45,3 +45,7 @@ next-env.d.ts
 # SQLite database files
 prisma/*.db
 prisma/*.db-journal
+*.db
+
+# MCP config (contains API keys)
+.mcp.json
