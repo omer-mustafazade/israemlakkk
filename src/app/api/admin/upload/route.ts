@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { put } from '@vercel/blob';
+import { getStore } from '@netlify/blobs';
 import { requireAdminAuth } from '@/lib/auth';
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
@@ -25,9 +25,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'File size must be under 5MB' }, { status: 400 });
     }
 
-    const blob = await put(file.name, file, { access: 'public' });
+    const ext = file.name.split('.').pop() ?? 'jpg';
+    const key = `${crypto.randomUUID()}.${ext}`;
 
-    return NextResponse.json({ url: blob.url });
+    const store = getStore('images');
+    await store.set(key, await file.arrayBuffer(), {
+      metadata: { contentType: file.type },
+    });
+
+    const url = `/api/images/${key}`;
+    return NextResponse.json({ url });
   } catch {
     return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
   }
