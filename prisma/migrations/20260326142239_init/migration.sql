@@ -1,0 +1,50 @@
+-- CreateTable
+CREATE TABLE "Listing" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "titleAz" TEXT NOT NULL,
+    "titleTr" TEXT NOT NULL,
+    "titleEn" TEXT NOT NULL,
+    "descAz" TEXT NOT NULL,
+    "descTr" TEXT NOT NULL,
+    "descEn" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
+    "propertyType" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'ACTIVE',
+    "price" REAL NOT NULL,
+    "currency" TEXT NOT NULL DEFAULT 'AZN',
+    "area" REAL NOT NULL,
+    "city" TEXT NOT NULL,
+    "district" TEXT NOT NULL,
+    "address" TEXT,
+    "rooms" INTEGER,
+    "bathrooms" INTEGER,
+    "floor" INTEGER,
+    "totalFloors" INTEGER,
+    "buildYear" INTEGER,
+    "hasParking" BOOLEAN NOT NULL DEFAULT false,
+    "hasBalcony" BOOLEAN NOT NULL DEFAULT false,
+    "hasElevator" BOOLEAN NOT NULL DEFAULT false,
+    "hasFurniture" BOOLEAN NOT NULL DEFAULT false,
+    "hasAC" BOOLEAN NOT NULL DEFAULT false,
+    "hasInternet" BOOLEAN NOT NULL DEFAULT false,
+    "hasSecurity" BOOLEAN NOT NULL DEFAULT false,
+    "hasPool" BOOLEAN NOT NULL DEFAULT false,
+    "hasGym" BOOLEAN NOT NULL DEFAULT false,
+    "isFeatured" BOOLEAN NOT NULL DEFAULT false,
+    "isNew" BOOLEAN NOT NULL DEFAULT true,
+    "viewCount" INTEGER NOT NULL DEFAULT 0,
+    "imagesJson" TEXT NOT NULL DEFAULT '[]',
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "ContactMessage" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "phone" TEXT NOT NULL,
+    "email" TEXT,
+    "message" TEXT NOT NULL,
+    "isRead" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
