@@ -21,6 +21,16 @@
     "clients": "Mutlu Müşteri",
     "cities": "Şehir"
   },
+  "values": {
+    "val1Title": "Dürüstlük",
+    "val1Desc": "Her ilanda açık fiyat ve şeffaf bilgi",
+    "val2Title": "Hız",
+    "val2Desc": "En kısa sürede ideal mülkü bulmanıza yardımcı oluyoruz",
+    "val3Title": "Uzmanlık",
+    "val3Desc": "Xırdalan ve Bakü bölgelerine derin hakimiyet",
+    "val4Title": "Kişisel İlgi",
+    "val4Desc": "İlk görüşmeden teslimata kadar tam destek"
+  },
   "featured": {
     "title": "Öne Çıkan Mülkler",
     "subtitle": "En iyi tekliflerimizle tanışın",
@@ -33,10 +43,10 @@
   },
   "whyUs": {
     "title": "Neden İSRA Emlak?",
-    "subtitle": "Size en iyi hizmeti sunmak için buradayız",
+    "subtitle": "Size en iyi ve dürüst hizmeti sunmak için buradayız",
     "trust": {
-      "title": "Güvenilirlik",
-      "desc": "10 yılı aşkın deneyimle her adımda yanınızdayız"
+      "title": "Dürüstlük",
+      "desc": "Her adımda şeffaf ve dürüst bir yaklaşımla yanınızdayız"
     },
     "speed": {
       "title": "Hız",
@@ -72,8 +82,8 @@
     "areaMin": "Min. alan (m²)",
     "areaMax": "Maks. alan (m²)",
     "rooms": "Oda sayısı",
-    "city": "Şehir",
-    "allCities": "Tüm şehirler",
+    "city": "Bölge",
+    "allCities": "Tüm bölgeler",
     "features": "Özellikler",
     "parking": "Otopark",
     "balcony": "Balkon",
@@ -129,13 +139,24 @@
   },
   "about": {
     "title": "Hakkımızda",
-    "subtitle": "İSRA Emlak — Azerbaycan'da güvenilir gayrimenkul şirketi",
-    "story": "Hikayemiz",
-    "storyText": "2015'ten bu yana faaliyet gösteren İSRA Emlak, Bakü ve çevre şehirlerde binlerce müşteriye hizmet vermiştir. Ekibimiz her müşteriye bireysel yaklaşımla ideal mülkü bulmada yardımcı olur.",
+    "subtitle": "İSRA Emlak — Xırdalan ve Bakü'de dürüst ve güvenilir gayrimenkul hizmeti",
+    "story": "Biz Kimiz?",
+    "storyText": "İSRA Emlak, Xırdalan'da faaliyet gösteren genç ve enerjik bir gayrimenkul şirketidir. Her müşteriye dürüst bilgi, şeffaf fiyat ve kişisel ilgi sunma ilkesiyle kurulduk. Amacımız basit: size en uygun mülkü bulmak ve bu süreci rahat, güvenilir bir deneyime dönüştürmek.",
     "mission": "Misyonumuz",
-    "missionText": "Müşterilerimize en iyi gayrimenkul hizmetini, şeffaflık ve güvenilirlik temelinde sunmak.",
+    "missionText": "Her müşteriye ilk adımdan son imzaya kadar tam şeffaflık ve dürüstlükle hizmet vermek. Müşterinin çıkarını her zaman ön planda tutmak.",
+    "missionStat1": "100% Şeffaflık",
+    "missionStat2": "Kişisel Yaklaşım",
+    "missionStat3": "7/24 Destek",
     "team": "Ekibimiz",
-    "values": "Değerlerimiz"
+    "values": "Değerlerimiz",
+    "val1Title": "Dürüstlük",
+    "val1Desc": "Açık fiyat, yanıltıcı bilgi yok — dürüst ve adil bir ilişki.",
+    "val2Title": "Hız",
+    "val2Desc": "Zamanınıza değer veriyoruz — aramadan anlaşmaya kadar hızlı.",
+    "val3Title": "Uzmanlık",
+    "val3Desc": "Xırdalan ve Bakü'yü iyi tanıyoruz, doğru tavsiyeyi veriyoruz.",
+    "val4Title": "Müşteri Odaklılık",
+    "val4Desc": "Her müşterimiz için özel yaklaşım — siz sadece alıcı değil, ortağımızsınız."
   },
   "contact": {
     "title": "İletişim",
@@ -155,8 +176,8 @@
       "address": "Adres",
       "phone": "Telefon",
       "email": "E-posta",
-      "hours": "Çalışma saatleri",
-      "hoursValue": "Pzt – Cum: 09:00 – 18:00"
+      "hours": "WhatsApp",
+      "hoursValue": "7/24 aktif"
     }
   },
   "footer": {

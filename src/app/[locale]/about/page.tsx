@@ -1,20 +1,20 @@
 import { useTranslations } from 'next-intl';
-import { Award, Users, Building2, Shield } from 'lucide-react';
+import { Award, Users, Shield, Zap } from 'lucide-react';
 
 export default function AboutPage() {
   const t = useTranslations('about');
 
   const values = [
-    { icon: Shield, title: 'Etibarlılıq', desc: 'Hər müştəriyə dürüstlük və şəffaflıqla yanaşırıq.' },
-    { icon: Award, title: 'Keyfiyyət', desc: 'Ən yüksək keyfiyyət standartlarına riayət edirik.' },
-    { icon: Users, title: 'Müştəri məmnuniyyəti', desc: 'Müştərinin razılığı bizim üçün ən vacib göstəricidir.' },
-    { icon: Building2, title: 'Peşəkarlıq', desc: '10 illik təcrübəmiz ilə hər addımda yanınızdayıq.' },
+    { icon: Shield, titleKey: 'val1Title', descKey: 'val1Desc' },
+    { icon: Zap,    titleKey: 'val2Title', descKey: 'val2Desc' },
+    { icon: Award,  titleKey: 'val3Title', descKey: 'val3Desc' },
+    { icon: Users,  titleKey: 'val4Title', descKey: 'val4Desc' },
   ];
 
   const team = [
-    { name: 'Nicat Əliyev', role: 'Baş Direktor', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80' },
-    { name: 'Leyla Həsənova', role: 'Satış Meneceri', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80' },
-    { name: 'Murad Quliyev', role: 'Daşınmaz Əmlak Agenti', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80' },
+    { name: 'İsmi Şiraz',     roleAz: 'Baş müdür',       roleTr: 'Genel Müdür',       roleEn: 'General Manager'   },
+    { name: 'Cəfər Qurbanov', roleAz: 'Yardımcı müdür',  roleTr: 'Yardımcı Müdür',   roleEn: 'Deputy Manager'    },
+    { name: 'Nicat Əbilov',   roleAz: 'Tanıtımcı',       roleTr: 'Tanıtımcı',         roleEn: 'Marketing Agent'   },
   ];
 
   return (
@@ -64,11 +64,11 @@ export default function AboutPage() {
               <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.8, fontSize: '0.97rem' }}>
                 {t('missionText')}
               </p>
-              <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-border)' }}>
-                {[{ v: '500+', l: 'Elan' }, { v: '10+', l: 'İl' }, { v: '1000+', l: 'Müştəri' }].map((s) => (
-                  <div key={s.l} style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-accent)' }}>{s.v}</div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{s.l}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-border)' }}>
+                {[t('missionStat1'), t('missionStat2'), t('missionStat3')].map((s) => (
+                  <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(26,60,94,0.06)', border: '1px solid rgba(26,60,94,0.12)', borderRadius: '999px', padding: '6px 14px', fontSize: '0.82rem', fontWeight: 600, color: 'var(--color-primary)' }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-accent)', flexShrink: 0, display: 'inline-block' }} />
+                    {s}
                   </div>
                 ))}
               </div>
@@ -87,12 +87,12 @@ export default function AboutPage() {
             {values.map((v) => {
               const Icon = v.icon;
               return (
-                <div key={v.title} style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)', padding: '2rem', border: '1px solid var(--color-border)', textAlign: 'center' }}>
+                <div key={v.titleKey} style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)', padding: '2rem', border: '1px solid var(--color-border)', textAlign: 'center' }}>
                   <div style={{ width: 56, height: 56, background: 'rgba(26,60,94,0.08)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
                     <Icon size={26} color="var(--color-primary)" />
                   </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '0.5rem' }}>{v.title}</h3>
-                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem', lineHeight: 1.7 }}>{v.desc}</p>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '0.5rem' }}>{t(v.titleKey as 'val1Title' | 'val2Title' | 'val3Title' | 'val4Title')}</h3>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem', lineHeight: 1.7 }}>{t(v.descKey as 'val1Desc' | 'val2Desc' | 'val3Desc' | 'val4Desc')}</p>
                 </div>
               );
             })}
@@ -107,15 +107,27 @@ export default function AboutPage() {
             <h2 className="section-title">{t('team')}</h2>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
-            {team.map((member) => (
-              <div key={member.name} style={{ textAlign: 'center', flex: '0 1 220px' }}>
-                <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 1rem', border: '3px solid var(--color-accent)' }}>
-                  <img src={member.img} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            {team.map((member) => {
+              const initials = member.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
+              return (
+                <div key={member.name} style={{ textAlign: 'center', flex: '0 1 200px' }}>
+                  <div
+                    style={{
+                      width: 100, height: 100, borderRadius: '50%',
+                      background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))',
+                      border: '3px solid var(--color-accent)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      margin: '0 auto 1rem',
+                      fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 700, color: '#fff',
+                    }}
+                  >
+                    {initials}
+                  </div>
+                  <h3 style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--color-text-primary)' }}>{member.name}</h3>
+                  <p style={{ color: 'var(--color-accent)', fontSize: '0.82rem', fontWeight: 600, marginTop: '4px' }}>{member.roleAz}</p>
                 </div>
-                <h3 style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--color-text-primary)' }}>{member.name}</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', marginTop: '4px' }}>{member.role}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

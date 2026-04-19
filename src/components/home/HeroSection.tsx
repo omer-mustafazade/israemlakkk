@@ -33,9 +33,9 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1600&q=85)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          backgroundPosition: 'center 40%',
           transform: 'scale(1.03)',
         }}
       />
@@ -193,20 +193,31 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Quick stats */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', marginTop: '2.5rem' }}>
+          {/* Trust indicators */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginTop: '2.5rem' }}>
             {[
-              { value: '500+', label: 'Aktiv Elan' },
-              { value: '10+', label: 'İl Təcrübə' },
-              { value: '1000+', label: 'Müştəri' },
-            ].map((stat) => (
-              <div key={stat.label} style={{ color: '#fff' }}>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 700, lineHeight: 1 }}>
-                  {stat.value}
-                </div>
-                <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)', marginTop: '4px' }}>
-                  {stat.label}
-                </div>
+              'Xırdalan Mütəxəssisi',
+              '7/24 WhatsApp Dəstəyi',
+              'Şəffaf & Dürüst Qiymət',
+            ].map((label) => (
+              <div
+                key={label}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: 'rgba(255,255,255,0.92)',
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  padding: '8px 16px',
+                  borderRadius: '999px',
+                  backdropFilter: 'blur(4px)',
+                }}
+              >
+                <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--color-accent-light)', flexShrink: 0, display: 'inline-block' }} />
+                {label}
               </div>
             ))}
           </div>
