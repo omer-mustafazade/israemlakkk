@@ -78,6 +78,5 @@ export async function fetchListings(params: Record<string, string> = {}): Promis
 export async function fetchListing(id: string): Promise<Listing> {
   const res = await fetch(`/api/listings/${id}`, { cache: 'no-store' });
   if (!res.ok) throw new Error('Listing not found');
-  const row = await res.json();
-  return mapDbListing(row);
+  return res.json(); // API already calls mapDbListing — no double-mapping
 }
