@@ -32,23 +32,11 @@ export default function Header() {
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
         {/* Logo */}
         <Link href={`/${locale}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div
-            style={{
-              width: 40,
-              height: 40,
-              background: 'var(--color-primary)',
-              borderRadius: 'var(--radius-sm)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '1.1rem',
-            }}
-          >
-            İ
-          </div>
+          <img
+            src="/logo.png"
+            alt="İSRA Emlak"
+            style={{ height: 48, width: 48, objectFit: 'contain', borderRadius: 'var(--radius-sm)' }}
+          />
           <div>
             <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               İSRA
@@ -84,7 +72,7 @@ export default function Header() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LanguageSwitcher />
           <a
-            href="tel:+994776254705"
+            href="tel:+994505780509"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -101,7 +89,7 @@ export default function Header() {
             className="phone-btn"
           >
             <Phone size={15} />
-            <span className="phone-text">+994 77 625 47 05</span>
+            <span className="phone-text">+994 50 578 05 09</span>
           </a>
 
           {/* Mobile burger */}

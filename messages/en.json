@@ -21,6 +21,16 @@
     "clients": "Happy Clients",
     "cities": "Cities"
   },
+  "values": {
+    "val1Title": "Honesty",
+    "val1Desc": "Clear pricing and transparent information on every listing",
+    "val2Title": "Speed",
+    "val2Desc": "We help you find the ideal property in the shortest time",
+    "val3Title": "Expertise",
+    "val3Desc": "Deep knowledge of Khirdalan and Baku districts",
+    "val4Title": "Personal Care",
+    "val4Desc": "Full support from first viewing to final handover"
+  },
   "featured": {
     "title": "Featured Properties",
     "subtitle": "Discover our best offers",
@@ -33,10 +43,10 @@
   },
   "whyUs": {
     "title": "Why ISRA Real Estate?",
-    "subtitle": "We are here to provide you with the best service",
+    "subtitle": "We are here to provide you with the best and most honest service",
     "trust": {
-      "title": "Trustworthy",
-      "desc": "With over 10 years of experience, we are with you every step of the way"
+      "title": "Honesty",
+      "desc": "We stand by you at every step with a transparent and honest approach"
     },
     "speed": {
       "title": "Fast",
@@ -72,8 +82,8 @@
     "areaMin": "Min. area (m²)",
     "areaMax": "Max. area (m²)",
     "rooms": "Rooms",
-    "city": "City",
-    "allCities": "All cities",
+    "city": "District",
+    "allCities": "All districts",
     "features": "Features",
     "parking": "Parking",
     "balcony": "Balcony",
@@ -129,13 +139,24 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "ISRA Real Estate — Trusted real estate company in Azerbaijan",
-    "story": "Our Story",
-    "storyText": "Operating since 2015, ISRA Real Estate has served thousands of clients in Baku and surrounding cities. Our team helps each client find the ideal property with a personalized approach.",
+    "subtitle": "ISRA Real Estate — Honest and reliable real estate service in Khirdalan & Baku",
+    "story": "Who Are We?",
+    "storyText": "ISRA Real Estate is a young and energetic real estate company based in Khirdalan. We were built on the principles of honest information, transparent pricing, and personal attention for every client. Our goal is simple: find you the right property and make the process a comfortable, trustworthy experience.",
     "mission": "Our Mission",
-    "missionText": "To provide our clients with the best real estate service based on transparency and reliability.",
+    "missionText": "To serve every client with full transparency and honesty — from the first step to the final signature. The client's interests always come first.",
+    "missionStat1": "100% Transparency",
+    "missionStat2": "Personal Approach",
+    "missionStat3": "7/24 Support",
     "team": "Our Team",
-    "values": "Our Values"
+    "values": "Our Values",
+    "val1Title": "Honesty",
+    "val1Desc": "Clear prices, no misleading information — straightforward and fair.",
+    "val2Title": "Speed",
+    "val2Desc": "We respect your time — from property search to agreement, fast and efficient.",
+    "val3Title": "Expertise",
+    "val3Desc": "We know Khirdalan and Baku well, and give you the right advice.",
+    "val4Title": "Client Focus",
+    "val4Desc": "A unique approach for every client — you are not just a buyer, you are our partner."
   },
   "contact": {
     "title": "Contact",
@@ -155,8 +176,8 @@
       "address": "Address",
       "phone": "Phone",
       "email": "Email",
-      "hours": "Working hours",
-      "hoursValue": "Mon – Fri: 09:00 – 18:00"
+      "hours": "WhatsApp",
+      "hoursValue": "Active 7/24"
     }
   },
   "footer": {

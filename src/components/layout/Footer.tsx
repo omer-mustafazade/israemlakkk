@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -30,22 +30,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  background: 'var(--color-accent)',
-                  borderRadius: 'var(--radius-sm)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-heading)',
-                  fontWeight: 700,
-                  fontSize: '1.2rem',
-                }}
-              >
-                İ
-              </div>
+              <img src="/logo.png" alt="İSRA Emlak" style={{ height: 52, width: 52, objectFit: 'contain', borderRadius: 'var(--radius-sm)' }} />
               <div>
                 <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.2rem' }}>İSRA Emlak</div>
               </div>
@@ -92,19 +77,19 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
                 <MapPin size={16} style={{ marginTop: 2, flexShrink: 0, color: 'var(--color-accent-light)' }} />
-                Bakı, Nəsimi rayonu, Nizami küçəsi 45
+                Bakı, Xırdalan rayonu, Mədəniyyət evinin yanı
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
                 <Phone size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />
-                <a href="tel:+994776254705" style={{ color: 'inherit', textDecoration: 'none' }}>+994 77 625 47 05</a>
+                <a href="tel:+994505780509" style={{ color: 'inherit', textDecoration: 'none' }}>+994 50 578 05 09</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
                 <Mail size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />
                 <a href="mailto:info@israemlak.az" style={{ color: 'inherit', textDecoration: 'none' }}>info@israemlak.az</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
-                <Clock size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />
-                {contact('hoursValue')}
+                <MessageCircle size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />
+                <a href="https://wa.me/994505780509" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>WhatsApp: 7/24</a>
               </li>
             </ul>
           </div>

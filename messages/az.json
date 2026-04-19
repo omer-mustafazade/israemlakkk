@@ -21,6 +21,16 @@
     "clients": "Məmnun Müştəri",
     "cities": "Şəhər"
   },
+  "values": {
+    "val1Title": "Dürüstlük",
+    "val1Desc": "Hər elanda açıq qiymət və şəffaf məlumat",
+    "val2Title": "Sürət",
+    "val2Desc": "Ən qısa müddətdə ideal mülkü tapmanıza kömək edirik",
+    "val3Title": "Peşəkarlıq",
+    "val3Desc": "Xırdalan və Bakı bölgəsinə dərindən bələdik",
+    "val4Title": "Fərdi Diqqət",
+    "val4Desc": "Hər müştəriyə alqı-satqının sonuna qədər tam dəstək"
+  },
   "featured": {
     "title": "Seçilmiş Mülklər",
     "subtitle": "Ən yaxşı təkliflərimizlə tanış olun",
@@ -33,10 +43,10 @@
   },
   "whyUs": {
     "title": "Niyə İSRA Emlak?",
-    "subtitle": "Sizə ən yaxşı xidməti təqdim etmək üçün buradayıq",
+    "subtitle": "Sizə ən yaxşı və dürüst xidməti təqdim etmək üçün buradayıq",
     "trust": {
-      "title": "Etibarlılıq",
-      "desc": "10 ildən artıq təcrübə ilə hər addımda yanınızdayıq"
+      "title": "Dürüstlük",
+      "desc": "Hər addımda şəffaf və dürüst yanaşma ilə yanınızdayıq"
     },
     "speed": {
       "title": "Sürətlilik",
@@ -72,8 +82,8 @@
     "areaMin": "Min. sahə (m²)",
     "areaMax": "Maks. sahə (m²)",
     "rooms": "Otaq sayı",
-    "city": "Şəhər",
-    "allCities": "Bütün şəhərlər",
+    "city": "Rayon",
+    "allCities": "Bütün rayonlar",
     "features": "Xüsusiyyətlər",
     "parking": "Otopark",
     "balcony": "Balkon",
@@ -129,13 +139,24 @@
   },
   "about": {
     "title": "Haqqımızda",
-    "subtitle": "İSRA Emlak — Azərbaycanda etibarlı daşınmaz əmlak şirkəti",
-    "story": "Hekayəmiz",
-    "storyText": "2015-ci ildən fəaliyyət göstərən İSRA Emlak, Bakı və ətraf şəhərlərdə minlərlə müştəriyə xidmət göstərmişdir. Komandamız hər müştəriyə fərdi yanaşma ilə ideal mülkü tapmaqda kömək edir.",
+    "subtitle": "İSRA Emlak — Xırdalan və Bakıda etibarlı, dürüst daşınmaz əmlak xidməti",
+    "story": "Biz Kimik?",
+    "storyText": "İSRA Emlak, Xırdalan rayonunda fəaliyyət göstərən gənc və enerjili daşınmaz əmlak şirkətidir. Biz hər müştəriyə dürüst məlumat, şəffaf qiymət və fərdi diqqət təqdim etmək prinsiplərinə əsaslanaraq yaradılmışıq. Məqsədimiz sadədir: sizə ən uyğun mülkü tapmaq və bu prosesi rahat, etibarlı bir təcrübəyə çevirmək.",
     "mission": "Missiyamız",
-    "missionText": "Müştərilərimizə ən yaxşı daşınmaz əmlak xidmətini, şəffaflıq və etibarlılıq əsasında təqdim etmək.",
+    "missionText": "Hər müştəriyə alqı-satqının ilk addımından son imzaya qədər tam şəffaflıq və dürüstlüklə xidmət göstərmək. Müştərinin mənafeyini həmişə ön plana qoymaq.",
+    "missionStat1": "100% Şəffaflıq",
+    "missionStat2": "Fərdi Yanaşma",
+    "missionStat3": "7/24 Dəstək",
     "team": "Komandamız",
-    "values": "Dəyərlərimiz"
+    "values": "Dəyərlərimiz",
+    "val1Title": "Dürüstlük",
+    "val1Desc": "Hər elanda açıq qiymət, aldatmadan uzaq, şəffaf münasibət.",
+    "val2Title": "Sürət",
+    "val2Desc": "Vaxtınıza dəyər veririk — mülk axtarışından razılaşmaya qədər sürətlə.",
+    "val3Title": "Peşəkarlıq",
+    "val3Desc": "Xırdalan və Bakı bölgəsini yaxşı tanıyır, düzgün məsləhət veririk.",
+    "val4Title": "Müştəri Diqqəti",
+    "val4Desc": "Hər müştərimiz üçün xüsusi yanaşma — siz sadəcə alıcı deyil, tərəfdaşımızsınız."
   },
   "contact": {
     "title": "Əlaqə",
@@ -155,8 +176,8 @@
       "address": "Ünvan",
       "phone": "Telefon",
       "email": "E-poçt",
-      "hours": "İş saatları",
-      "hoursValue": "B.e – Cümə: 09:00 – 18:00"
+      "hours": "WhatsApp",
+      "hoursValue": "7/24 aktiv"
     }
   },
   "footer": {

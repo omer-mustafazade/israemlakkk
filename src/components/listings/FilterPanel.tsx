@@ -20,7 +20,11 @@ interface Props {
   onReset: () => void;
 }
 
-const CITIES = ['Bakı', 'Sumqayıt', 'Gəncə', 'Abşeron'];
+const CITIES = [
+  'Xırdalan', 'Yasamal', 'Binəqədi', 'Nəsimi', 'Nizami',
+  'Xətai', 'Suraxanı', 'Sabunçu', 'Sabail', 'Abşeron',
+  'Sumqayıt', 'Pirallahı',
+];
 const PROPERTY_TYPES = ['APARTMENT', 'HOUSE', 'VILLA', 'LAND', 'COMMERCIAL', 'OFFICE'];
 const FEATURES = ['parking', 'balcony', 'elevator', 'furniture', 'pool', 'security'];
 const ROOM_OPTIONS = ['1', '2', '3', '4', '5+'];

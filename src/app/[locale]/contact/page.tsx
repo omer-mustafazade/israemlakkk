@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
@@ -10,8 +10,8 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const PHONE = '+994776254705';
-  const PHONE_DISPLAY = '+994 77 625 47 05';
+  const PHONE = '+994505780509';
+  const PHONE_DISPLAY = '+994 50 578 05 09';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -173,10 +173,9 @@ export default function ContactPage() {
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {[
-                    { icon: MapPin, label: t('info.address'), value: 'Bakı, Nəsimi rayonu, Nizami küçəsi 45' },
+                    { icon: MapPin, label: t('info.address'), value: 'Bakı, Xırdalan rayonu, Mədəniyyət evinin yanı' },
                     { icon: Phone, label: t('info.phone'), value: PHONE_DISPLAY, href: `tel:${PHONE}` },
                     { icon: Mail, label: t('info.email'), value: 'info@israemlak.az', href: 'mailto:info@israemlak.az' },
-                    { icon: Clock, label: t('info.hours'), value: t('info.hoursValue') },
                   ].map((item) => {
                     const Icon = item.icon;
                     return (

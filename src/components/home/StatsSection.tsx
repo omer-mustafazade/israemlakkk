@@ -1,42 +1,57 @@
 import { useTranslations } from 'next-intl';
-import { Building2, Award, Users, MapPin } from 'lucide-react';
+import { ShieldCheck, Zap, Award, HeartHandshake } from 'lucide-react';
 
-const STATS = [
-  { key: 'listings', value: '500+', icon: Building2 },
-  { key: 'experience', value: '10+', icon: Award },
-  { key: 'clients', value: '1000+', icon: Users },
-  { key: 'cities', value: '5+', icon: MapPin },
+const VALUES = [
+  {
+    icon: ShieldCheck,
+    titleKey: 'val1Title',
+    descKey: 'val1Desc',
+  },
+  {
+    icon: Zap,
+    titleKey: 'val2Title',
+    descKey: 'val2Desc',
+  },
+  {
+    icon: Award,
+    titleKey: 'val3Title',
+    descKey: 'val3Desc',
+  },
+  {
+    icon: HeartHandshake,
+    titleKey: 'val4Title',
+    descKey: 'val4Desc',
+  },
 ];
 
 export default function StatsSection() {
-  const t = useTranslations('stats');
+  const t = useTranslations('values');
 
   return (
-    <section
-      style={{
-        background: 'var(--color-primary)',
-        padding: '4rem 0',
-      }}
-    >
+    <section style={{ background: 'var(--color-primary)', padding: '4rem 0' }}>
       <div className="container">
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '2rem',
           }}
         >
-          {STATS.map((stat) => {
-            const Icon = stat.icon;
+          {VALUES.map((v) => {
+            const Icon = v.icon;
             return (
               <div
-                key={stat.key}
+                key={v.titleKey}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
                   gap: '0.75rem',
+                  padding: '1rem',
+                  borderRadius: 'var(--radius-md)',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 <div
@@ -53,19 +68,11 @@ export default function StatsSection() {
                 >
                   <Icon size={24} color="var(--color-accent-light)" />
                 </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '2.5rem',
-                    fontWeight: 700,
-                    color: '#fff',
-                    lineHeight: 1,
-                  }}
-                >
-                  {stat.value}
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
+                  {t(v.titleKey as 'val1Title' | 'val2Title' | 'val3Title' | 'val4Title')}
                 </div>
-                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
-                  {t(stat.key as 'listings' | 'experience' | 'clients' | 'cities')}
+                <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>
+                  {t(v.descKey as 'val1Desc' | 'val2Desc' | 'val3Desc' | 'val4Desc')}
                 </div>
               </div>
             );

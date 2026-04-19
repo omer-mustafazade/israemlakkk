@@ -58,7 +58,7 @@ export default function ListingDetailPage({ params }: { params: Promise<{ locale
 
   const title = getTitle(listing, locale);
   const description = getDesc(listing, locale);
-  const PHONE = '+994776254705';
+  const PHONE = '+994505780509';
   const whatsappMsg = encodeURIComponent(`${t('whatsappIntro')}: ${title}`);
 
   return (
