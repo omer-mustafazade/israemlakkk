@@ -7,6 +7,23 @@
         "@21st-dev/magic@latest",
         "API_KEY=8a99d030382d7d6704baa76e22b491f268313ccc27ec51848aa61f8314829196"
       ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
+    },
+    "netlify": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@netlify/mcp@latest"
+      ],
+      "env": {
+        "NETLIFY_TOKEN": "nfp_mUk4EJ9zAzCMxFG3ETzwaLtEnbVpdEuQ617b"
+      }
     }
   }
 }
