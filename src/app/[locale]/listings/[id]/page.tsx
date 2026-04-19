@@ -203,30 +203,33 @@ export default function ListingDetailPage({ params }: { params: Promise<{ locale
   );
 }
 
+const PLACEHOLDER = 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=800';
+
 function ImageGallery({ images, title }: { images: { url: string; alt?: string }[]; title: string }) {
   const [current, setCurrent] = useState(0);
+  const displayImages = images.length > 0 ? images : [{ url: PLACEHOLDER, alt: title }];
 
   return (
     <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', position: 'relative', background: '#000' }}>
       <div style={{ position: 'relative', paddingBottom: '56.25%' }}>
-        <img src={images[current]?.url} alt={images[current]?.alt || title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        {images.length > 1 && (
+        <img src={displayImages[current]?.url} alt={displayImages[current]?.alt || title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        {displayImages.length > 1 && (
           <>
-            <button onClick={() => setCurrent((c) => (c - 1 + images.length) % images.length)} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40, color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button onClick={() => setCurrent((c) => (c - 1 + displayImages.length) % displayImages.length)} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40, color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <ChevronLeft size={20} />
             </button>
-            <button onClick={() => setCurrent((c) => (c + 1) % images.length)} style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40, color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button onClick={() => setCurrent((c) => (c + 1) % displayImages.length)} style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40, color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <ChevronRight size={20} />
             </button>
             <div style={{ position: 'absolute', bottom: 12, right: 16, background: 'rgba(0,0,0,0.55)', color: '#fff', padding: '4px 10px', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 600 }}>
-              {current + 1}/{images.length}
+              {current + 1}/{displayImages.length}
             </div>
           </>
         )}
       </div>
-      {images.length > 1 && (
+      {displayImages.length > 1 && (
         <div style={{ display: 'flex', gap: '6px', padding: '8px', background: 'var(--color-surface)', overflowX: 'auto' }}>
-          {images.map((img, i) => (
+          {displayImages.map((img, i) => (
             <button key={i} onClick={() => setCurrent(i)} style={{ flexShrink: 0, width: 80, height: 56, borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: `2px solid ${i === current ? 'var(--color-accent)' : 'transparent'}`, cursor: 'pointer', padding: 0, background: 'none' }}>
               <img src={img.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </button>

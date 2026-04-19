@@ -429,7 +429,7 @@ export function getListingDescription(listing: Listing, locale: string): string 
 
 export function getPrimaryImage(listing: Listing): string {
   const primary = listing.images.find((img) => img.isPrimary);
-  return primary?.url ?? listing.images[0]?.url ?? '/images/placeholder.jpg';
+  return primary?.url ?? listing.images[0]?.url ?? 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=800';
 }
 
 export function formatPrice(price: number, currency: string): string {
