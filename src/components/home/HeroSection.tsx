@@ -33,7 +33,7 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1600&q=85)',
+          backgroundImage: 'url(https://images.pexels.com/photos/7805616/pexels-photo-7805616.jpeg?auto=compress&cs=tinysrgb&w=1600)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
           transform: 'scale(1.03)',
