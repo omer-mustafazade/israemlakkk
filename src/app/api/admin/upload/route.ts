@@ -9,7 +9,7 @@ cloudinary.config({
 });
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-const MAX_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+const MAX_SIZE_BYTES = 5 * 1024 * 1024; // 5MB — Netlify function body limit is 6MB
 
 export async function POST(req: NextRequest) {
   const authError = requireAdminAuth(req);
@@ -28,24 +28,23 @@ export async function POST(req: NextRequest) {
     }
 
     if (file.size > MAX_SIZE_BYTES) {
-      return NextResponse.json({ error: 'File size must be under 10MB' }, { status: 400 });
+      return NextResponse.json({ error: 'File size must be under 5MB' }, { status: 400 });
     }
 
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
+    const base64 = buffer.toString('base64');
+    const dataUri = `data:${file.type};base64,${base64}`;
 
-    const result = await new Promise<{ secure_url: string }>((resolve, reject) => {
-      cloudinary.uploader.upload_stream(
-        { folder: 'isra-emlak', resource_type: 'image' },
-        (error, result) => {
-          if (error || !result) reject(error);
-          else resolve(result as { secure_url: string });
-        }
-      ).end(buffer);
+    const result = await cloudinary.uploader.upload(dataUri, {
+      folder: 'isra-emlak',
+      resource_type: 'image',
     });
 
     return NextResponse.json({ url: result.secure_url });
-  } catch {
-    return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[upload] Cloudinary error:', message);
+    return NextResponse.json({ error: 'Upload failed', detail: message }, { status: 500 });
   }
 }

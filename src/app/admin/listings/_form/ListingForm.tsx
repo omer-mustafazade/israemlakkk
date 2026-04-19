@@ -78,7 +78,7 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
         if (res.ok) {
           setImages((prev) => [...prev, { url: data.url, alt: '', isPrimary: prev.length === 0 }]);
         } else {
-          setError(data.error ?? 'Şəkil yüklənmədi');
+          setError((data.error ?? 'Şəkil yüklənmədi') + (data.detail ? `: ${data.detail}` : ''));
         }
       }
     } catch {
