@@ -70,19 +70,40 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
     setUploading(true);
     setError('');
     try {
+      // Get Cloudinary signature from server (lightweight call, no file transfer)
+      const signRes = await fetch('/api/admin/upload-sign');
+      if (!signRes.ok) {
+        setError('İmza alınamadı, giriş yenilənsin');
+        return;
+      }
+      const { signature, timestamp, folder, cloud_name, api_key } = await signRes.json();
+
       for (const file of Array.from(files)) {
+        if (file.size > 10 * 1024 * 1024) {
+          setError('Şəkil 10MB-dan böyükdür');
+          continue;
+        }
+        // Upload directly to Cloudinary (bypasses Netlify function body limit entirely)
         const fd = new FormData();
         fd.append('file', file);
-        const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-        const data = await res.json();
-        if (res.ok) {
-          setImages((prev) => [...prev, { url: data.url, alt: '', isPrimary: prev.length === 0 }]);
+        fd.append('api_key', api_key);
+        fd.append('timestamp', String(timestamp));
+        fd.append('signature', signature);
+        fd.append('folder', folder);
+
+        const uploadRes = await fetch(
+          `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+          { method: 'POST', body: fd }
+        );
+        const data = await uploadRes.json();
+        if (uploadRes.ok && data.secure_url) {
+          setImages((prev) => [...prev, { url: data.secure_url, alt: '', isPrimary: prev.length === 0 }]);
         } else {
-          setError((data.error ?? 'Şəkil yüklənmədi') + (data.detail ? `: ${data.detail}` : ''));
+          setError(data.error?.message ?? 'Şəkil yüklənmədi');
         }
       }
-    } catch {
-      setError('Şəkil yüklənərkən xəta baş verdi');
+    } catch (err) {
+      setError('Şəkil yüklənərkən xəta: ' + (err instanceof Error ? err.message : String(err)));
     } finally {
       setUploading(false);
       if (fileRef.current) fileRef.current.value = '';
