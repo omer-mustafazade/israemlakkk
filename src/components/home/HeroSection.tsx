@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { Search, Home, Building2 } from 'lucide-react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
@@ -10,6 +11,22 @@ export default function HeroSection() {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<'ALL' | 'SALE' | 'RENT'>('ALL');
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const bgX = useSpring(mouseX, { stiffness: 35, damping: 20 });
+  const bgY = useSpring(mouseY, { stiffness: 35, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const { width, height, left, top } = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - left - width / 2) / width * 25);
+    mouseY.set((e.clientY - top - height / 2) / height * 15);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   const handleSearch = () => {
     const params = new URLSearchParams();
@@ -20,6 +37,8 @@ export default function HeroSection() {
 
   return (
     <section
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{
         position: 'relative',
         minHeight: '92vh',
@@ -28,15 +47,17 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* Background Image */}
-      <div
+      {/* Background Image with parallax */}
+      <motion.div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: 'url(https://images.pexels.com/photos/7805616/pexels-photo-7805616.jpeg?auto=compress&cs=tinysrgb&w=1600)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
-          transform: 'scale(1.03)',
+          scale: 1.08,
+          x: bgX,
+          y: bgY,
         }}
       />
       {/* Gradient overlay */}
@@ -51,7 +72,10 @@ export default function HeroSection() {
       <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: '3rem', paddingBottom: '5rem' }}>
         <div style={{ maxWidth: 760 }}>
           {/* Badge */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -69,10 +93,13 @@ export default function HeroSection() {
           >
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-accent-light)', display: 'inline-block' }} />
             İSRA Emlak — Bakı, Azərbaycan
-          </div>
+          </motion.div>
 
           {/* Title */}
-          <h1
+          <motion.h1
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
             style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
@@ -84,10 +111,13 @@ export default function HeroSection() {
             }}
           >
             {t('title')}
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
             style={{
               fontSize: 'clamp(1rem, 2vw, 1.2rem)',
               color: 'rgba(255,255,255,0.82)',
@@ -97,10 +127,13 @@ export default function HeroSection() {
             }}
           >
             {t('subtitle')}
-          </p>
+          </motion.p>
 
           {/* Search box */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
             style={{
               background: '#fff',
               borderRadius: 'var(--radius-lg)',
@@ -191,10 +224,15 @@ export default function HeroSection() {
                 {t('btnSearch')}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Trust indicators */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginTop: '2.5rem' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginTop: '2.5rem' }}
+          >
             {[
               'Xırdalan Mütəxəssisi',
               '7/24 WhatsApp Dəstəyi',
@@ -220,7 +258,7 @@ export default function HeroSection() {
                 {label}
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 

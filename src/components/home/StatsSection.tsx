@@ -1,5 +1,7 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import { ShieldCheck, Zap, Award, HeartHandshake } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const VALUES = [
   {
@@ -37,11 +39,15 @@ export default function StatsSection() {
             gap: '2rem',
           }}
         >
-          {VALUES.map((v) => {
+          {VALUES.map((v, i) => {
             const Icon = v.icon;
             return (
-              <div
+              <motion.div
                 key={v.titleKey}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.55, delay: i * 0.12, ease: 'easeOut' }}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -54,7 +60,9 @@ export default function StatsSection() {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div
+                <motion.div
+                  whileHover={{ rotateY: 360 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
                   style={{
                     width: 56,
                     height: 56,
@@ -67,14 +75,14 @@ export default function StatsSection() {
                   }}
                 >
                   <Icon size={24} color="var(--color-accent-light)" />
-                </div>
+                </motion.div>
                 <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
                   {t(v.titleKey as 'val1Title' | 'val2Title' | 'val3Title' | 'val4Title')}
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>
                   {t(v.descKey as 'val1Desc' | 'val2Desc' | 'val3Desc' | 'val4Desc')}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

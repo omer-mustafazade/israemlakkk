@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Listing } from '@/types';
 import { fetchListings } from '@/lib/api';
 import ListingCard from '@/components/listings/ListingCard';
@@ -22,7 +23,11 @@ export default function FeaturedListings() {
     <section className="section">
       <div className="container">
         {/* Header */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           style={{
             display: 'flex',
             alignItems: 'flex-end',
@@ -69,7 +74,7 @@ export default function FeaturedListings() {
           >
             {t('viewAll')} <ArrowRight size={16} />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         <div
@@ -79,8 +84,17 @@ export default function FeaturedListings() {
             gap: '1.5rem',
           }}
         >
-          {featured.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
+          {featured.map((listing, i) => (
+            <motion.div
+              key={listing.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: i * 0.1, ease: 'easeOut' }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            >
+              <ListingCard listing={listing} />
+            </motion.div>
           ))}
         </div>
       </div>
