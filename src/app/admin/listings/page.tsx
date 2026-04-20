@@ -8,6 +8,7 @@ const STATUS_LABELS: Record<string, { label: string; color: string; bg: string }
   ACTIVE: { label: 'Aktiv', color: '#16a34a', bg: '#dcfce7' },
   SOLD: { label: 'Satılıb', color: '#2563eb', bg: '#dbeafe' },
   RENTED: { label: 'İcarə', color: '#9333ea', bg: '#f3e8ff' },
+  INACTIVE: { label: 'Arxiv', color: '#6b7280', bg: '#f3f4f6' },
   ARCHIVED: { label: 'Arxiv', color: '#6b7280', bg: '#f3f4f6' },
 };
 

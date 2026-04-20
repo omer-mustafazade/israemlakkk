@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { mapDbListing } from '@/lib/api';
@@ -80,10 +82,10 @@ export async function GET(req: NextRequest) {
       prisma.listing.count({ where }),
     ]);
 
-    return NextResponse.json({
-      listings: listings.map(mapDbListing),
-      pagination: { total, page, limit, totalPages: Math.ceil(total / limit) },
-    });
+    return NextResponse.json(
+      { listings: listings.map(mapDbListing), pagination: { total, page, limit, totalPages: Math.ceil(total / limit) } },
+      { headers: { 'Cache-Control': 'no-store' } },
+    );
   } catch {
     return NextResponse.json({ error: 'Failed to fetch listings' }, { status: 500 });
   }

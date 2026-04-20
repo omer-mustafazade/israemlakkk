@@ -126,6 +126,19 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Client-side required field check (e.preventDefault bypasses browser validation)
+    const missing: string[] = [];
+    if (form.titleAz.trim().length < 2) missing.push('Başlıq (AZ)');
+    if (!form.price) missing.push('Qiymət');
+    if (!form.area) missing.push('Sahə (m²)');
+    if (form.city.trim().length < 2) missing.push('Şəhər');
+    if (form.district.trim().length < 2) missing.push('Rayon');
+    if (missing.length > 0) {
+      setError('Zəruri sahələr boşdur: ' + missing.join(', '));
+      return;
+    }
+
     setSaving(true);
     setError('');
     try {
@@ -142,7 +155,10 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
       });
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error ?? 'Xəta baş verdi');
+        const details = Array.isArray(data.details) && data.details.length > 0
+          ? ': ' + data.details.join('; ')
+          : '';
+        throw new Error((data.error ?? 'Xəta baş verdi') + details);
       }
       router.push('/admin/listings');
       router.refresh();
