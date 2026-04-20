@@ -49,10 +49,9 @@ export async function PUT(
   const errors: string[] = [];
 
   const titleAz = sanitizeStr(body.titleAz, { min: 2, max: 300 });
-  const titleTr = sanitizeStr(body.titleTr, { min: 2, max: 300 });
+  const titleTr = sanitizeStr(body.titleTr, { min: 0, max: 300 }) ?? '';
   const titleEn = sanitizeStr(body.titleEn, { max: 300 }) ?? '';
   if (!titleAz) errors.push('titleAz is required (2-300 chars)');
-  if (!titleTr) errors.push('titleTr is required (2-300 chars)');
 
   const descAz = sanitizeStr(body.descAz, { max: 8000 }) ?? '';
   const descTr = sanitizeStr(body.descTr, { max: 8000 }) ?? '';
@@ -97,7 +96,7 @@ export async function PUT(
     const listing = await prisma.listing.update({
       where: { id },
       data: {
-        titleAz: titleAz!, titleTr: titleTr!, titleEn,
+        titleAz: titleAz!, titleTr, titleEn,
         descAz, descTr, descEn,
         category: category!, propertyType: propertyType!,
         status, currency,

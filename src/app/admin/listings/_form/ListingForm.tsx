@@ -225,7 +225,7 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
               <option value="ACTIVE">Aktiv</option>
               <option value="SOLD">Satılıb</option>
               <option value="RENTED">İcarəyə verilib</option>
-              <option value="ARCHIVED">Arxiv</option>
+              <option value="INACTIVE">Arxiv</option>
             </select>
           </Field>
           <Field label="Qiymət" required>
