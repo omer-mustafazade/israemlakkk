@@ -5,9 +5,33 @@ import { NextRequest, NextResponse } from 'next/server';
 const intlMiddleware = createIntlMiddleware(routing);
 
 // ---------------------------------------------------------------------------
+// Constant-time string comparison (Edge Runtime safe — no Node.js crypto)
+// ---------------------------------------------------------------------------
+function safeCompare(a: string, b: string): boolean {
+  const enc = new TextEncoder();
+  const bufA = enc.encode(a);
+  const bufB = enc.encode(b);
+  // Always iterate max length so timing doesn't reveal length difference.
+  const len = Math.max(bufA.length, bufB.length);
+  let diff = bufA.length === bufB.length ? 0 : 1;
+  for (let i = 0; i < len; i++) {
+    diff |= (bufA[i] ?? 0) ^ (bufB[i] ?? 0);
+  }
+  return diff === 0;
+}
+
+// ---------------------------------------------------------------------------
 // Rate limiter (in-memory, edge-safe)
 // ---------------------------------------------------------------------------
 const store = new Map<string, { count: number; resetAt: number }>();
+
+/** Purge expired entries to prevent unbounded memory growth. */
+function pruneStore() {
+  const now = Date.now();
+  for (const [key, entry] of store) {
+    if (now > entry.resetAt) store.delete(key);
+  }
+}
 
 function rateLimit(
   key: string,
@@ -15,6 +39,10 @@ function rateLimit(
   windowMs: number
 ): { allowed: boolean; retryAfter: number } {
   const now = Date.now();
+
+  // Prune ~5% of the time to keep memory bounded without slowing every request.
+  if (Math.random() < 0.05) pruneStore();
+
   const entry = store.get(key);
 
   if (!entry || now > entry.resetAt) {
@@ -31,10 +59,16 @@ function rateLimit(
   return { allowed: true, retryAfter: 0 };
 }
 
+/**
+ * Get the real client IP.
+ * On Netlify, x-nf-client-connection-ip is set by the platform and cannot be
+ * spoofed by the client — use it as the primary source.
+ */
 function getIp(req: NextRequest): string {
   return (
-    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    req.headers.get('x-real-ip') ||
+    req.headers.get('x-nf-client-connection-ip') ||        // Netlify real IP (unspoofable)
+    req.headers.get('x-real-ip') ||                        // Other reverse proxies
+    req.headers.get('x-forwarded-for')?.split(',').pop()?.trim() || // Last entry = proxy-added
     'unknown'
   );
 }
@@ -46,7 +80,6 @@ function tooManyRequests(retryAfter: number) {
       status: 429,
       headers: {
         'Retry-After': String(retryAfter),
-        'X-RateLimit-Reset': String(retryAfter),
       },
     }
   );
@@ -78,11 +111,12 @@ export default function middleware(req: NextRequest) {
   if (pathname.startsWith('/api/')) {
     const { allowed, retryAfter } = rateLimit(`api:${ip}`, 120, MIN_15);
     if (!allowed) return tooManyRequests(retryAfter);
-    // Admin API auth check
+
+    // Admin API auth check (timing-safe comparison)
     if (pathname.startsWith('/api/admin')) {
-      const token = req.cookies.get('admin_token')?.value;
+      const token = req.cookies.get('admin_token')?.value ?? '';
       const validToken = process.env.ADMIN_TOKEN ?? '';
-      if (!token || !validToken || token !== validToken) {
+      if (!safeCompare(token, validToken) || !validToken) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
       }
     }
@@ -91,12 +125,10 @@ export default function middleware(req: NextRequest) {
 
   // --- Admin panel pages: auth check ---
   if (pathname.startsWith('/admin')) {
-    if (pathname === '/admin/login') {
-      return NextResponse.next();
-    }
-    const token = req.cookies.get('admin_token')?.value;
+    if (pathname === '/admin/login') return NextResponse.next();
+    const token = req.cookies.get('admin_token')?.value ?? '';
     const validToken = process.env.ADMIN_TOKEN ?? '';
-    if (!token || token !== validToken) {
+    if (!safeCompare(token, validToken) || !validToken) {
       return NextResponse.redirect(new URL('/admin/login', req.url));
     }
     return NextResponse.next();

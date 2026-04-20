@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { timingSafeEqual, createHash } from 'crypto';
 
 const TOKEN_COOKIE = 'admin_token';
 
@@ -6,15 +7,24 @@ export function getAdminToken(): string {
   return process.env.ADMIN_TOKEN ?? '';
 }
 
+/** Constant-time string comparison — prevents timing attacks. */
+function safeCompare(a: string, b: string): boolean {
+  // Hash both sides to normalize length before byte comparison.
+  const hashA = createHash('sha256').update(a).digest();
+  const hashB = createHash('sha256').update(b).digest();
+  return timingSafeEqual(hashA, hashB);
+}
+
 export function checkPassword(password: string): boolean {
-  return password === (process.env.ADMIN_PASSWORD ?? '');
+  const expected = process.env.ADMIN_PASSWORD ?? '';
+  return safeCompare(password, expected);
 }
 
 export function isValidToken(token: string | undefined): boolean {
   if (!token) return false;
   const validToken = getAdminToken();
   if (!validToken) return false;
-  return token === validToken;
+  return safeCompare(token, validToken);
 }
 
 export function requireAdminAuth(req: NextRequest): NextResponse | null {
