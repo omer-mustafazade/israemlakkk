@@ -30,7 +30,9 @@ export async function POST(req: NextRequest) {
   return res;
 }
 
-export async function DELETE() {
+export async function DELETE(req: NextRequest) {
+  const authError = requireAdminAuth(req);
+  if (authError) return authError;
   const res = NextResponse.json({ success: true });
   res.cookies.delete(TOKEN_COOKIE);
   return res;

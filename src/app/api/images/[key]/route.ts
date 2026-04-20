@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getStore } from '@netlify/blobs';
+import { sanitizeId } from '@/lib/validate';
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ key: string }> }
 ) {
-  const { key } = await params;
+  const { key: rawKey } = await params;
+  const key = sanitizeId(rawKey);
+  if (!key) return NextResponse.json({ error: 'Invalid key' }, { status: 400 });
 
   try {
     const store = getStore('images');
