@@ -86,7 +86,8 @@ export async function GET(req: NextRequest) {
       { listings: listings.map(mapDbListing), pagination: { total, page, limit, totalPages: Math.ceil(total / limit) } },
       { headers: { 'Cache-Control': 'no-store' } },
     );
-  } catch {
-    return NextResponse.json({ error: 'Failed to fetch listings' }, { status: 500 });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: 'Failed to fetch listings', detail: msg }, { status: 500 });
   }
 }
