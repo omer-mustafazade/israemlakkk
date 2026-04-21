@@ -44,9 +44,15 @@ export default function ListingMap({ district, city, address }: Props) {
     const fallback1 = `${district}, ${city}, Azerbaijan`;
     const fallback2 = `${city}, Azerbaijan`;
 
+    // Try progressively simpler queries — Nominatim handles Latin better than Azerbaijani chars
+    const cityLatin = city.replace(/ə/g,'e').replace(/ş/g,'sh').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ğ/g,'g');
+    const districtLatin = district.replace(/ə/g,'e').replace(/ş/g,'sh').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ğ/g,'g');
+
     (precise ? geocode(precise) : Promise.resolve(null))
       .then(c => c ?? geocode(fallback1))
+      .then(c => c ?? geocode(`${districtLatin}, ${cityLatin}, Azerbaijan`))
       .then(c => c ?? geocode(fallback2))
+      .then(c => c ?? geocode(`${cityLatin}, Azerbaijan`))
       .then(c => setCoords(c))
       .finally(() => setLoading(false));
   }, [district, city, address]);
