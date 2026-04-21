@@ -197,7 +197,7 @@ export default function ListingDetailPage({ params }: { params: Promise<{ locale
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '0.75rem' }}>
                 📍 {listing.address || `${listing.district}, ${listing.city}`}
               </p>
-              <ListingMap district={listing.district} city={listing.city} />
+              <ListingMap district={listing.district} city={listing.city} address={listing.address} />
             </div>
 
             {similar.length > 0 && (

@@ -32,18 +32,24 @@ async function geocode(query: string): Promise<[number, number] | null> {
 interface Props {
   district: string;
   city: string;
+  address?: string;
 }
 
-export default function ListingMap({ district, city }: Props) {
+export default function ListingMap({ district, city, address }: Props) {
   const [coords, setCoords] = useState<[number, number] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    geocode(`${district}, ${city}, Azerbaijan`)
-      .then(c => c ?? geocode(`${city}, Azerbaijan`))
+    const precise = address ? `${address}, ${district}, ${city}, Azerbaijan` : null;
+    const fallback1 = `${district}, ${city}, Azerbaijan`;
+    const fallback2 = `${city}, Azerbaijan`;
+
+    (precise ? geocode(precise) : Promise.resolve(null))
+      .then(c => c ?? geocode(fallback1))
+      .then(c => c ?? geocode(fallback2))
       .then(c => setCoords(c))
       .finally(() => setLoading(false));
-  }, [district, city]);
+  }, [district, city, address]);
 
   if (loading) {
     return (
