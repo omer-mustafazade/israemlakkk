@@ -29,6 +29,7 @@ export function parsePositiveFloat(
   value: unknown,
   { min = 0, max = 1_000_000_000 }: { min?: number; max?: number } = {}
 ): number | null {
+  if (value === null || value === undefined) return null;
   const n = typeof value === 'string' ? parseFloat(value) : Number(value);
   if (!Number.isFinite(n) || n < min || n > max) return null;
   return n;
