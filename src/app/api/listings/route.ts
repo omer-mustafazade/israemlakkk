@@ -92,6 +92,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(
       {
         _v: 'neon-v2',
+        _debug: { where, params, total, rowCount: rows.length },
         listings: rows.map(mapDbListing),
         pagination: { total, page, limit, totalPages: Math.ceil(total / limit) },
       },
