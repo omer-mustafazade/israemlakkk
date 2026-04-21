@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { checkPassword, getAdminToken, TOKEN_COOKIE } from '@/lib/auth';
+import { checkPassword, getAdminToken, requireAdminAuth, TOKEN_COOKIE } from '@/lib/auth';
 import { sanitizeStr } from '@/lib/validate';
 
 export async function POST(req: NextRequest) {

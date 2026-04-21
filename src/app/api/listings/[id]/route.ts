@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { sql } from '@/lib/db';
 import { mapDbListing } from '@/lib/api';
 import { sanitizeId } from '@/lib/validate';
 
@@ -12,19 +14,18 @@ export async function GET(
   if (!id) return NextResponse.json({ error: 'Invalid id' }, { status: 400 });
 
   try {
-    const listing = await prisma.listing.findUnique({ where: { id } });
-    if (!listing) {
+    const rows = await sql(`SELECT * FROM "Listing" WHERE id = $1`, [id]);
+
+    if (rows.length === 0) {
       return NextResponse.json({ error: 'Not found' }, { status: 404 });
     }
 
-    // Increment view count (fire and forget)
-    prisma.listing.update({
-      where: { id },
-      data: { viewCount: { increment: 1 } },
-    }).catch(() => {});
+    // Increment view count — fire and forget
+    sql(`UPDATE "Listing" SET "viewCount" = "viewCount" + 1 WHERE id = $1`, [id]).catch(() => {});
 
-    return NextResponse.json(mapDbListing(listing));
-  } catch {
-    return NextResponse.json({ error: 'Failed to fetch listing' }, { status: 500 });
+    return NextResponse.json(mapDbListing(rows[0]));
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: 'Failed to fetch listing', detail: msg }, { status: 500 });
   }
 }
