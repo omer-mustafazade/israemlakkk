@@ -1,9 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { MapPin, BedDouble, Bath, Maximize2, Layers } from 'lucide-react';
+import { MapPin, BedDouble, Bath, Maximize2, Layers, Heart } from 'lucide-react';
 import { Listing } from '@/types';
 import { getListingTitle, getPrimaryImage, formatPrice } from '@/lib/mockData';
+import { useFavorites } from '@/hooks/useFavorites';
 
 interface Props {
   listing: Listing;
@@ -14,6 +15,8 @@ export default function ListingCard({ listing }: Props) {
   const t = useTranslations('listing');
   const title = getListingTitle(listing, locale);
   const image = getPrimaryImage(listing);
+  const { isFav, toggle } = useFavorites();
+  const fav = isFav(listing.id);
 
   return (
     <Link
@@ -48,6 +51,37 @@ export default function ListingCard({ listing }: Props) {
             {listing.isNew && <span className="badge badge-new">{t('new')}</span>}
             {listing.isFeatured && <span className="badge badge-featured">{t('featured')}</span>}
           </div>
+          {/* Favorite button */}
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(listing.id); }}
+            title={fav ? 'Seçilmişlərdən çıxar' : 'Seçilmişlərə əlavə et'}
+            style={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              width: 36,
+              height: 36,
+              borderRadius: '50%',
+              border: 'none',
+              background: fav ? 'rgba(239,68,68,0.15)' : 'rgba(255,255,255,0.85)',
+              backdropFilter: 'blur(6px)',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              transition: 'transform 0.2s ease, background 0.2s ease',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.15)')}
+            onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+          >
+            <Heart
+              size={17}
+              fill={fav ? '#ef4444' : 'none'}
+              color={fav ? '#ef4444' : '#64748b'}
+              style={{ transition: 'all 0.2s ease' }}
+            />
+          </button>
         </div>
 
         {/* Content */}
