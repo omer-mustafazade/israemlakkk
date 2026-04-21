@@ -5,18 +5,17 @@ import { sql } from '@/lib/db';
 
 export async function GET() {
   try {
-    const [dbInfo, countAll, countActive, firstRow] = await Promise.all([
-      sql('SELECT current_database() AS db, current_user AS usr'),
-      sql('SELECT COUNT(*) AS total FROM "Listing"'),
-      sql(`SELECT COUNT(*) AS total FROM "Listing" WHERE status = 'ACTIVE'`),
-      sql('SELECT id, status, "titleAz" FROM "Listing" LIMIT 1'),
-    ]);
+    // Test 1: no params (works in debug)
+    const t1 = await sql(`SELECT COUNT(*) AS total FROM "Listing" WHERE status = 'ACTIVE'`);
+    // Test 2: empty params array (what listings route does with no filters)
+    const t2 = await sql(`SELECT COUNT(*) AS total FROM "Listing" WHERE status = 'ACTIVE'`, []);
+    // Test 3: parameterized status
+    const t3 = await sql(`SELECT COUNT(*) AS total FROM "Listing" WHERE status = $1`, ['ACTIVE']);
+
     return NextResponse.json({
-      database: (dbInfo[0] as { db: string; usr: string }).db,
-      listingCountAll: (countAll[0] as { total: string }).total,
-      listingCountActive: (countActive[0] as { total: string }).total,
-      firstRow: firstRow[0] ?? null,
-      urlHost: (() => { try { return new URL(process.env.DATABASE_URL ?? '').hostname; } catch { return 'PARSE_ERROR'; } })(),
+      t1_noParams: (t1[0] as { total: string }).total,
+      t2_emptyArray: (t2[0] as { total: string }).total,
+      t3_parameterized: (t3[0] as { total: string }).total,
     });
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 });
