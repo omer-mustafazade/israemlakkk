@@ -23,7 +23,7 @@
   },
   "values": {
     "val1Title": "Honesty",
-    "val1Desc": "Clear pricing and transparent information on every listing",
+    "val1Desc": "We clearly state both the pros and cons of every property — no misleading, full transparency",
     "val2Title": "Speed",
     "val2Desc": "We help you find the ideal property in the shortest time",
     "val3Title": "Expertise",
@@ -46,7 +46,7 @@
     "subtitle": "We are here to provide you with the best and most honest service",
     "trust": {
       "title": "Honesty",
-      "desc": "We stand by you at every step with a transparent and honest approach"
+      "desc": "We openly share both the advantages and shortcomings of every property with you"
     },
     "speed": {
       "title": "Fast",
@@ -72,7 +72,7 @@
     "type": "Property type",
     "allTypes": "All types",
     "apartment": "Apartment",
-    "house": "House",
+    "house": "Detached House",
     "villa": "Villa",
     "land": "Land",
     "commercial": "Commercial",
@@ -85,8 +85,8 @@
     "city": "District",
     "allCities": "All districts",
     "features": "Features",
-    "parking": "Parking",
-    "balcony": "Balcony",
+    "parking": "Garage",
+    "balcony": "Porch",
     "elevator": "Elevator",
     "furniture": "Furnished",
     "pool": "Pool",
@@ -119,9 +119,9 @@
     "similar": "Similar Listings",
     "breadcrumbHome": "Home",
     "breadcrumbListings": "Listings",
-    "bathroom": "Bathroom",
-    "parking": "Parking",
-    "balcony": "Balcony",
+    "bathroom": "Bathroom/Sauna",
+    "parking": "Garage",
+    "balcony": "Porch",
     "elevator": "Elevator",
     "furniture": "Furnished",
     "ac": "Air Conditioning",
@@ -150,7 +150,7 @@
     "team": "Our Team",
     "values": "Our Values",
     "val1Title": "Honesty",
-    "val1Desc": "Clear prices, no misleading information — straightforward and fair.",
+    "val1Desc": "We share both the strengths and weaknesses of every property honestly — no misleading.",
     "val2Title": "Speed",
     "val2Desc": "We respect your time — from property search to agreement, fast and efficient.",
     "val3Title": "Expertise",
@@ -185,6 +185,18 @@
     "quickLinks": "Quick Links",
     "contact": "Contact",
     "rights": "All rights reserved"
+  },
+  "sellWithUs": {
+    "title": "Want to Sell Your Property?",
+    "subtitle": "Experience a fast, transparent, and profitable sale with ISRA Real Estate",
+    "benefit1": "Fast Sale",
+    "benefit1Desc": "Our wide client base ensures your property is sold quickly",
+    "benefit2": "Fair Price",
+    "benefit2Desc": "We know the market well and guarantee you the best price",
+    "benefit3": "Stress-Free Process",
+    "benefit3Desc": "From paperwork to closing — we handle everything for you",
+    "cta": "Contact Us",
+    "ctaWhatsApp": "Write on WhatsApp"
   },
   "common": {
     "loading": "Loading...",

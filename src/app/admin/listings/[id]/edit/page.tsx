@@ -46,6 +46,7 @@ export default function EditListingPage({ params }: { params: Promise<{ id: stri
     price: String(listing.price),
     currency: listing.currency,
     area: String(listing.area),
+    landArea: listing.landArea !== undefined ? String(listing.landArea) : '',
     city: listing.city,
     district: listing.district,
     address: listing.address ?? '',

@@ -72,6 +72,10 @@ export async function PUT(
   const area = parsePositiveFloat(body.area, { min: 0, max: 999_999 });
   if (area === null) errors.push('area must be a valid positive number');
 
+  const landArea = body.landArea != null && body.landArea !== ''
+    ? parsePositiveFloat(body.landArea, { min: 0, max: 99_999 })
+    : null;
+
   const city     = sanitizeStr(body.city,     { min: 2, max: 100 });
   const district = sanitizeStr(body.district, { min: 2, max: 100 });
   if (!city)     errors.push('city is required (2-100 chars)');
@@ -100,7 +104,7 @@ export async function PUT(
         descAz, descTr, descEn,
         category: category!, propertyType: propertyType!,
         status, currency,
-        price: price!, area: area!,
+        price: price!, area: area!, landArea: landArea ?? null,
         city: city!, district: district!, address,
         rooms: rooms ?? null, bathrooms: bathrooms ?? null,
         floor: floor ?? null, totalFloors: totalFloors ?? null,

@@ -38,6 +38,7 @@ export function mapDbListing(row: any): Listing {
     district: row.district,
     address: row.address ?? undefined,
     area: row.area,
+    landArea: row.landArea ?? undefined,
     rooms: row.rooms ?? undefined,
     bathrooms: row.bathrooms ?? undefined,
     floor: row.floor ?? undefined,

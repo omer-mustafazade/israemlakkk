@@ -14,6 +14,7 @@ interface FormData {
   descAz: string; descTr: string; descEn: string;
   category: string; propertyType: string; status: string;
   price: string; currency: string; area: string;
+  landArea: string;
   city: string; district: string; address: string;
   rooms: string; bathrooms: string; floor: string;
   totalFloors: string; buildYear: string;
@@ -28,6 +29,7 @@ const EMPTY_FORM: FormData = {
   descAz: '', descTr: '', descEn: '',
   category: 'SALE', propertyType: 'APARTMENT', status: 'ACTIVE',
   price: '', currency: 'AZN', area: '',
+  landArea: '',
   city: '', district: '', address: '',
   rooms: '', bathrooms: '', floor: '', totalFloors: '', buildYear: '',
   hasParking: false, hasBalcony: false, hasElevator: false,
@@ -145,6 +147,7 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
       const payload = {
         ...form,
         imagesJson: JSON.stringify(images),
+        landArea: form.landArea || null,
       };
       const url = listingId ? `/api/admin/listings/${listingId}` : '/api/admin/listings';
       const method = listingId ? 'PUT' : 'POST';
@@ -229,7 +232,7 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
           <Field label="Əmlak növü" required>
             <select value={form.propertyType} onChange={set('propertyType')} required style={inputStyle}>
               <option value="APARTMENT">Mənzil</option>
-              <option value="HOUSE">Ev</option>
+              <option value="HOUSE">Həyət evi</option>
               <option value="VILLA">Villa</option>
               <option value="OFFICE">Ofis</option>
               <option value="LAND">Torpaq</option>
@@ -265,6 +268,21 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
           <Field label="Sahə (m²)" required>
             <input type="number" value={form.area} onChange={set('area')} required min={0} placeholder="0" style={inputStyle} />
           </Field>
+          {form.propertyType === 'HOUSE' && (
+            <Field label="Torpaq sahəsi (sot)">
+              <input
+                type="number"
+                value={form.landArea}
+                onChange={set('landArea')}
+                min={0}
+                placeholder="0"
+                style={inputStyle}
+              />
+              <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: 4 }}>
+                1 sot = 100 m² · Həyət evi üçün torpaq sahəsi
+              </p>
+            </Field>
+          )}
         </div>
       </Section>
 
@@ -289,7 +307,7 @@ export default function ListingForm({ initialData, initialImages, listingId }: P
           <Field label="Otaq sayı">
             <input type="number" value={form.rooms} onChange={set('rooms')} min={0} style={inputStyle} />
           </Field>
-          <Field label="Vanna otağı">
+          <Field label="Hamam/Saunzel">
             <input type="number" value={form.bathrooms} onChange={set('bathrooms')} min={0} style={inputStyle} />
           </Field>
           <Field label="Mərtəbə">
@@ -613,10 +631,10 @@ const gridStyle: React.CSSProperties = {
 };
 
 const FEATURES = [
-  { key: 'hasParking', label: 'Otopark' },
-  { key: 'hasBalcony', label: 'Balkon' },
+  { key: 'hasParking', label: 'Qaraj' },
+  { key: 'hasBalcony', label: 'Eyvan' },
   { key: 'hasElevator', label: 'Lift' },
-  { key: 'hasFurniture', label: 'Mebel' },
+  { key: 'hasFurniture', label: 'Əşyalı' },
   { key: 'hasAC', label: 'Kondisioner' },
   { key: 'hasInternet', label: 'İnternet' },
   { key: 'hasSecurity', label: 'Mühafizə' },

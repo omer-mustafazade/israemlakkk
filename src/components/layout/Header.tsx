@@ -38,11 +38,11 @@ export default function Header() {
             style={{ height: 48, width: 48, objectFit: 'contain', borderRadius: 'var(--radius-sm)' }}
           />
           <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem', color: 'var(--color-primary)', lineHeight: 1.1 }}>
+            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.25rem', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               İSRA
             </div>
-            <div style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Emlak
+            <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--color-accent)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              EMLAK
             </div>
           </div>
         </Link>
@@ -70,9 +70,11 @@ export default function Header() {
 
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <LanguageSwitcher />
+          <div className="lang-switcher-desktop">
+            <LanguageSwitcher />
+          </div>
           <a
-            href="tel:+994505780509"
+            href="tel:+994105050343"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -89,7 +91,7 @@ export default function Header() {
             className="phone-btn"
           >
             <Phone size={15} />
-            <span className="phone-text">+994 50 578 05 09</span>
+            <span className="phone-text">+994 10 505 03 43</span>
           </a>
 
           {/* Mobile burger */}
@@ -148,6 +150,7 @@ export default function Header() {
           .desktop-nav { display: none !important; }
           .burger-btn { display: flex !important; }
           .phone-text { display: none; }
+          .lang-switcher-desktop { display: none !important; }
         }
       `}</style>
     </header>

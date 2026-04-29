@@ -45,6 +45,7 @@ export interface Listing {
   longitude?: number;
 
   area: number;
+  landArea?: number;
   rooms?: number;
   bathrooms?: number;
   floor?: number;

@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
                 <Phone size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />
-                <a href="tel:+994505780509" style={{ color: 'inherit', textDecoration: 'none' }}>+994 50 578 05 09</a>
+                <a href="tel:+994105050343" style={{ color: 'inherit', textDecoration: 'none' }}>+994 10 505 03 43</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
                 <Mail size={16} style={{ flexShrink: 0, color: 'var(--color-accent-light)' }} />

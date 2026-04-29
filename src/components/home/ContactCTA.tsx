@@ -2,8 +2,8 @@
 import { useTranslations } from 'next-intl';
 import { Phone, MessageCircle } from 'lucide-react';
 
-const PHONE = '+994505780509';
-const PHONE_DISPLAY = '+994 50 578 05 09';
+const PHONE = '+994105050343';
+const PHONE_DISPLAY = '+994 10 505 03 43';
 
 export default function ContactCTA() {
   const t = useTranslations('cta');

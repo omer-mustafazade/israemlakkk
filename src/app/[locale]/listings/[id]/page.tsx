@@ -63,7 +63,7 @@ export default function ListingDetailPage({ params }: { params: Promise<{ locale
 
   const title = getTitle(listing, locale);
   const description = getDesc(listing, locale);
-  const PHONE = '+994505780509';
+  const PHONE = '+994105050343';
   const whatsappMsg = encodeURIComponent(`${t('whatsappIntro')}: ${title}`);
 
   return (
@@ -138,6 +138,7 @@ export default function ListingDetailPage({ params }: { params: Promise<{ locale
                   listing.rooms ? { icon: BedDouble, label: `${listing.rooms} ${t('rooms')}` } : null,
                   listing.bathrooms ? { icon: Bath, label: `${listing.bathrooms} ${t('bathroom')}` } : null,
                   { icon: Maximize2, label: `${listing.area} ${t('area')}` },
+                  listing.landArea ? { icon: Maximize2, label: `${listing.landArea} sot` } : null,
                   listing.floor && listing.totalFloors ? { icon: Layers, label: `${listing.floor}/${listing.totalFloors} ${t('floor')}` } : null,
                   listing.buildYear ? { icon: Calendar, label: `${listing.buildYear}` } : null,
                   { icon: Eye, label: `${listing.viewCount} ${t('viewCount')}` },

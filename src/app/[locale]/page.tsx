@@ -3,6 +3,7 @@ import FeaturedListings from '@/components/home/FeaturedListings';
 import StatsSection from '@/components/home/StatsSection';
 import RecentListings from '@/components/home/RecentListings';
 import WhyUs from '@/components/home/WhyUs';
+import SellWithUs from '@/components/home/SellWithUs';
 import ContactCTA from '@/components/home/ContactCTA';
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <StatsSection />
       <RecentListings />
       <WhyUs />
+      <SellWithUs />
       <ContactCTA />
     </>
   );

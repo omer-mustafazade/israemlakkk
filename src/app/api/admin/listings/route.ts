@@ -71,6 +71,10 @@ function parseListing(body: Record<string, unknown>) {
   const area = parsePositiveFloat(body.area, { min: 0, max: 999_999 });
   if (area === null) errors.push('area must be a valid positive number');
 
+  const landArea = body.landArea != null && body.landArea !== ''
+    ? parsePositiveFloat(body.landArea, { min: 0, max: 99_999 })
+    : null;
+
   const city     = sanitizeStr(body.city,     { min: 2, max: 100 });
   const district = sanitizeStr(body.district, { min: 2, max: 100 });
   if (!city)     errors.push('city is required (2-100 chars)');
@@ -95,7 +99,7 @@ function parseListing(body: Record<string, unknown>) {
       descAz, descTr, descEn,
       category: category ?? 'SALE', propertyType: propertyType ?? 'APARTMENT',
       status, currency,
-      price: price ?? 0, area: area ?? 0,
+      price: price ?? 0, area: area ?? 0, landArea: landArea ?? null,
       city: city ?? '', district: district ?? '', address,
       rooms: rooms ?? null, bathrooms: bathrooms ?? null,
       floor: floor ?? null, totalFloors: totalFloors ?? null,

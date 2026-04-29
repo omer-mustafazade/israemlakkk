@@ -21,7 +21,7 @@ interface Props {
 }
 
 const CITIES = [
-  'Xırdalan', 'Yasamal', 'Binəqədi', 'Nəsimi', 'Nizami',
+  'Xırdalan', 'Masazır', 'Yasamal', 'Binəqədi', 'Nəsimi', 'Nizami',
   'Xətai', 'Suraxanı', 'Sabunçu', 'Sabail', 'Abşeron',
   'Sumqayıt', 'Pirallahı',
 ];

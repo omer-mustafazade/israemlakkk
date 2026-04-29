@@ -23,6 +23,7 @@ model Listing {
   price       Float
   currency    String   @default("AZN")
   area        Float
+  landArea    Float?   // Torpaq sahəsi (sot ilə)
   // Location
   city        String
   district    String
